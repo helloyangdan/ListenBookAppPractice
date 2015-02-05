@@ -112,6 +112,8 @@
 - (void)timerStart
 {
     _timer = [NSTimer timerWithTimeInterval:1.5f target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    // 此种方法必须添加到主运行循环才能开启
+    // 如果用这种定时器可以不添加到主循环也能运行scheduledTimerWithTimeInterval: invocation: repeats:
     [[NSRunLoop mainRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];// $$$$$
 }
 
